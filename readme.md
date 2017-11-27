@@ -1,7 +1,3 @@
-# PostgreSQL and NodeJS
-
-This is a basic single page application built with Node, Express, Angular, and PostgreSQL.
-
 ## Quick Start
 
 1. Clone the repo
@@ -10,3 +6,5 @@ This is a basic single page application built with Node, Express, Angular, and P
 1. Check your databse configuration in routes/index.js tableName
 1. Start the server: `$ npm start`
 
+## Instructions
+3 files matter : client/javascripts/app.js, server/routes/index.js and client/views/index.html.
