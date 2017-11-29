@@ -32,5 +32,15 @@ angular.module('nodeTodo', [])
     })
   };
 
-  
+  // This code is called when the checkbox is clicked in index.html
+  $scope.deleteTodo = (todoID) => {
+
+    // This is the http DELETE action defined in routes/index.js. todoId comes from index.html
+    $http.delete('/api/v1/todos/' + todoID)
+    .success((data) => {
+
+      // We display the new data
+      $scope.todoData = data;
+    })
+  };
 });

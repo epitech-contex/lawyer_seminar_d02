@@ -90,7 +90,41 @@ router.post('/api/v1/todos', (request, res, next) => {
 });
 
 
+// Handle HTTP Request DELETE on URL (address) '/api/v1/todos'
+router.delete('/api/v1/todos/:todo_id', (req, res, next) => {
+  
+  // We'll store results here
+  const results = [];
 
+  // Get the data sent by the browser (request)
+  const id = req.params.todo_id;
+
+  // Connect to the database
+  pg.connect(connectionString, (err, client, done) => {
+
+    // Handle connection errors
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json({success: false, data: err});
+    }
+
+    // Create a request for the SQL server. Delete means... delete ! 
+    client.query('DELETE FROM ' + tableName + ' WHERE id=($1)', [id]);
+
+    // From now on code we've already seen two times
+    var query = client.query('SELECT * FROM ' + tableName + ' ORDER BY id ASC');
+
+    query.on('row', (row) => {
+      results.push(row);
+    });
+
+    query.on('end', () => {
+      done();
+      return res.json(results);
+    });
+  });
+});
 
 
 // Don't worry about that

@@ -35,7 +35,9 @@
         <ul ng-repeat="todo in todoData">
 
           <li><h3>
-           
+            <!-- A Input, of type checkbox (so checkable) ng-click links with javascripts/app.js -->
+            <input class="lead" type="checkbox" ng-click="deleteTodo(todo.id)"/>
+
             <!-- Raw text. the {{ }} means the content will come from todo, which is a line of todoData, coming from javascripts/app.js -->
             &nbsp;{{ todo.text }}
             </h3></li><hr>
