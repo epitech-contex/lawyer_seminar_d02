@@ -12,21 +12,7 @@
         <h1 class="lead">Node + Express + Angular + PostgreSQL</h1>
       </div>
 
-      <!-- This is the main form, used to add a TODO -->
       
-      <div class="todo-form">
-        <form>
-          <div class="form-group">
-
-            <!-- The input you've already seen. ng-model is used to link with javascripts/app.js -->
-            <input type="text" class="form-control input-lg" placeholder="Enter text..." ng-model="formData.text">
-          </div>
-
-          <!-- A buttin you've already seen. ng-click is used to link with javascripts/app.js-->
-          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add Todo</button>
-        </form>
-      </div>
-      <br>
 
       <!-- This is where we display the todo -->
       <div class="todo-list">
@@ -35,9 +21,7 @@
         <ul ng-repeat="todo in todoData">
 
           <li><h3>
-            <!-- A Input, of type checkbox (so checkable) ng-click links with javascripts/app.js -->
-            <input class="lead" type="checkbox" ng-click="deleteTodo(todo.id)"/>
-
+          
             <!-- Raw text. the {{ }} means the content will come from todo, which is a line of todoData, coming from javascripts/app.js -->
             &nbsp;{{ todo.text }}
             </h3></li><hr>
